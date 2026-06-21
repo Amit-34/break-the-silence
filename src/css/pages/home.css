@@ -1,0 +1,36 @@
+/**
+ * Page-specific styles for the home page hero.
+ * Page-scoped CSS lives here so global files stay lean as the project grows.
+ */
+@layer components {
+  /* Committed / invited companies carousel */
+
+  /* "Organisations behind the campaign" — soft pink panel with curved white edges.
+     Each curve is a white block made WIDER than the section, so only the gentle
+     centre of a very large ellipse is visible. This reproduces the broad, shallow
+     sweep in the reference far more smoothly than a fixed-height SVG wave. */
+  .org-panel {
+    position: relative;
+  }
+
+  .org-panel__curve {
+    position: absolute;
+    width: 100%;
+    height: clamp(36px, 7vw, 120px);
+    background-color: var(--background-1);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Top: white sweeps DOWN into the pink. Ellipse centred ABOVE the block. */
+  .org-panel__curve--top {
+    top: -1px;
+    clip-path: ellipse(60% 150% at 50% -50%);
+  }
+
+  /* Bottom: white arches UP into the pink. Ellipse centred BELOW the block. */
+  .org-panel__curve--bottom {
+    bottom: -1px;
+    clip-path: ellipse(60% 150% at 50% 150%);
+  }
+}

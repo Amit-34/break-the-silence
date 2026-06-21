@@ -1,0 +1,146 @@
+/**
+ * fonts.css — Scalable typography system (self-hosted fonts)
+ * =====================================================================
+ * A design-token based typography system built on @font-face + CSS
+ * custom properties, mirroring the architecture of colors.css.
+ *
+ * ARCHITECTURE (3 layers):
+ *   1. FONT FACES       — register every local font file with @font-face.
+ *                         One family ("Proxima Nova"), many weights.
+ *   2. SEMANTIC TOKENS  — intent-based aliases that map roles to families
+ *                         (--font-display, --font-heading, --font-body,
+ *                          --font-accent). Each carries its own fallback
+ *                          stack so text stays readable before fonts load.
+ *   3. WEIGHT TOKENS    — named weights (--fw-regular … --fw-extrabold)
+ *                         that match the registered @font-face weights.
+ *
+ * WHY THIS SCALES (and is multi-brand ready):
+ *   - Components reference SEMANTIC tokens (font-display, font-body, …),
+ *     never a raw font-family string.
+ *   - To re-brand, override the --font-* variables in a scope. Example:
+ *
+ *       [data-brand="acme"] {
+ *         --font-display: "Acme Grotesk", var(--font-fallback);
+ *       }
+ *
+ *     Every utility and component instantly picks up the new family —
+ *     zero changes to markup or Tailwind config.
+ *   - To add a weight, add ONE @font-face block. Tailwind's existing
+ *     font-weight utilities (font-medium, font-bold, …) just work.
+ *
+ * USAGE:
+ *   @import '../styles/fonts.css';     // load once, globally (see main.css)
+ *   <h1 class="font-display font-extrabold">…</h1>
+ *   <p  class="font-body">…</p>
+ *   font-family: var(--font-heading);  // in custom CSS
+ *
+ * FONT FILE FORMATS:
+ *   Each face prefers .woff2 → .woff (the modern, compressed web formats a
+ *   design system should ship), then falls back to the legacy .svg / .eot
+ *   files currently in /assets/fonts. SVG/EOT fonts do NOT render in modern
+ *   browsers, so add the .woff2/.woff files (see README/notes) for the fonts
+ *   to actually display. No code changes are needed once they are dropped in.
+ *
+ * PATHS:
+ *   url()s are relative to the COMPILED stylesheet (dist/css/main.css),
+ *   so fonts at dist/assets/fonts resolve as ../assets/fonts/…
+ * =====================================================================
+ */
+
+/* =====================================================================
+ * 1. FONT FACES — register every local Proxima Nova file.
+ *    Single family name, distinct font-weight per file. `font-display:
+ *    swap` shows fallback text immediately, then swaps in the web font.
+ * ================================================================== */
+
+/* Regular — 400 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaRegular.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaRegular.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaRegular.svg#ProximaNovaRegular") format("svg");
+}
+
+/* Medium — 500 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaMedium.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaMedium.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaMedium.svg#ProximaNovaMedium") format("svg");
+}
+
+/* Semibold — 600 (also ships a legacy .eot) */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaSemibold.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaSemibold.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaSemibold.eot") format("embedded-opentype"),
+    url("../assets/fonts/ProximaNovaSemibold.svg#ProximaNovaSemibold") format("svg");
+}
+
+/* Bold — 700 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaBold.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaBold.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaBold.svg#ProximaNovaBold") format("svg");
+}
+
+/* Extrabold — 800 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaExtrabold.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaExtrabold.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaExtrabold.svg#ProximaNovaExtrabold") format("svg");
+}
+
+/* =====================================================================
+ * 2. SEMANTIC TOKENS — map typographic ROLES to families.
+ *    All roles share Proxima Nova here, but each is independently
+ *    re-brandable (override the variable in a [data-brand] scope).
+ * ================================================================== */
+:root {
+  /* Shared system fallback stack — used while web fonts load and as a
+     graceful degradation if a brand font is missing. */
+  --font-fallback: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+
+  /* Role tokens (consumed by Tailwind: font-display / -heading / -body / -accent) */
+  --font-display: "Proxima Nova", var(--font-fallback); /* hero / marketing  */
+  --font-heading: "Proxima Nova", var(--font-fallback); /* section headings  */
+  --font-body: "Proxima Nova", var(--font-fallback); /* paragraphs / UI   */
+  --font-accent: "Proxima Nova", var(--font-fallback); /* captions / labels */
+}
+
+/* =====================================================================
+ * 3. WEIGHT TOKENS — named weights matching the registered faces.
+ *    Tailwind's font-* weight utilities already map to these numbers;
+ *    these variables exist for use inside custom CSS.
+ * ================================================================== */
+:root {
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+}

@@ -1,0 +1,88 @@
+/**
+ * icons.css — IcoMoon icon font integration.
+ * =====================================================================
+ * Registers the "icomoon" icon font and exposes one class per glyph.
+ * Generated from the IcoMoon export in /assets/custom-fonts (style.css +
+ * selection.json). Edit there, re-export, then mirror changes here.
+ *
+ * USAGE:
+ *   <i class="icon-search" aria-hidden="true"></i>
+ *   <button aria-label="Close"><i class="icon-close"></i></button>
+ *
+ * Icons are pure decoration: add aria-hidden="true" (or an accessible
+ * label on the parent) so screen readers don't announce private-use
+ * codepoints.
+ *
+ * SIZING / COLOR:
+ *   The glyph inherits font-size and color, so size it like text:
+ *   <i class="icon-search text-2xl text-primary-600"></i>
+ *
+ * FONT FILES (IMPORTANT):
+ *   Only icomoon.svg currently ships in /assets/fonts. SVG fonts no
+ *   longer render in modern browsers, so drop the matching
+ *   icomoon.woff / icomoon.ttf / icomoon.eot (from the same IcoMoon
+ *   export) into src/assets/fonts/ for the icons to actually display.
+ *   No code changes are needed once they are added.
+ *
+ * PATHS:
+ *   url()s are relative to the COMPILED stylesheet (dist/css/main.css),
+ *   so fonts at dist/assets/fonts resolve as ../assets/fonts/…
+ * ================================================================== */
+
+@font-face {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-display: block;
+  src:
+    url("../assets/fonts/icomoon.woff2") format("woff2"),
+    url("../assets/fonts/icomoon.woff") format("woff"),
+    url("../assets/fonts/icomoon.ttf") format("truetype"),
+    url("../assets/fonts/icomoon.eot") format("embedded-opentype"),
+    url("../assets/fonts/icomoon.svg#icomoon") format("svg");
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-safe-circle::before {
+  content: "\e905";
+}
+.icon-search::before {
+  content: "\e900";
+}
+.icon-global::before {
+  content: "\e901";
+}
+.icon-hr-materials::before {
+  content: "\e902";
+}
+.icon-helplines::before {
+  content: "\e903";
+}
+.icon-office-posters::before {
+  content: "\e904";
+}
+.icon-close::before {
+  content: "\e956";
+}
+.icon-hamburger::before {
+  content: "\e93d";
+}
+.icon-search1::before {
+  content: "\e910";
+}

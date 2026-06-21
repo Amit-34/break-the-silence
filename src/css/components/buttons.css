@@ -1,0 +1,38 @@
+/**
+ * Reusable button component classes.
+ * Declared inside Tailwind's `components` layer so utilities can still override them.
+ * Usage: <button class="btn btn-primary">Save</button>
+ */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold;
+    @apply transition-all duration-200 ease-out-expo;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white shadow-soft hover:bg-primary-700 focus-visible:ring-primary-500;
+    @apply active:translate-y-px;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-ink ring-1 ring-inset ring-slate-200 hover:bg-slate-50 focus-visible:ring-primary-500;
+  }
+
+  .btn-accent {
+    @apply bg-accent-600 text-white shadow-soft hover:bg-accent-700 focus-visible:ring-accent-500;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-ink hover:bg-slate-100 focus-visible:ring-primary-500;
+  }
+
+  .btn-lg {
+    @apply px-7 py-3.5 text-base;
+  }
+
+  .btn-sm {
+    @apply px-3.5 py-2 text-xs;
+  }
+}

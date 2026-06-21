@@ -1,0 +1,29 @@
+/**
+ * Card component classes used for feature/content tiles.
+ * Usage:
+ *   <article class="card">
+ *     <div class="card-body"> ... </div>
+ *   </article>
+ */
+@layer components {
+  .card {
+    @apply flex flex-col overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-slate-100;
+    @apply transition-transform duration-300 ease-out-expo hover:-translate-y-1;
+  }
+
+  .card-body {
+    @apply flex flex-1 flex-col gap-3 p-6;
+  }
+
+  .card-title {
+    @apply text-lg font-semibold text-ink;
+  }
+
+  .card-text {
+    @apply text-sm leading-relaxed text-ink-muted;
+  }
+
+  .card-icon {
+    @apply mb-1 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600;
+  }
+}

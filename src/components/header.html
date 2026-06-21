@@ -1,0 +1,99 @@
+<!-- Shared site header / navigation. Injected into every page via data-include. -->
+<!-- Links use `data-link` so the SPA router intercepts them for client-side navigation. -->
+<header data-header class="sticky top-0 z-50 bg-background-1 transition-shadow">
+  <nav class="container flex py-4 lg:py-6 items-center justify-between gap-4" aria-label="Primary">
+    <!-- Brand -->
+    <a
+      href="/"
+      data-link
+      class="flex items-center no-underline"
+      aria-label="Break The Silence home"
+    >
+      <img
+        src="assets/images/logo.png"
+        onerror="
+          this.onerror = null;
+          this.src = 'assets/images/logo.svg';
+        "
+        alt="Break The Silence"
+        class="h-9 w-auto md:h-10"
+      />
+    </a>
+
+    <!-- Desktop navigation -->
+    <div class="flex items-center gap-8">
+      <ul class="hidden items-center gap-8 lg:flex">
+        <li><a class="nav-link" data-link href="/about">About</a></li>
+        <li><a class="nav-link" data-link href="/voices">Voices</a></li>
+        <li><a class="nav-link" data-link href="/resources">Resources</a></li>
+        <li><a class="nav-link" data-link href="/how-to-join">How To Join</a></li>
+      </ul>
+
+      <!-- Desktop CTAs + utility icons -->
+      <div class="hidden items-center gap-3 lg:flex">
+        <a class="btn-pill btn-cta-primary" data-link href="/get-involved">Get Involved</a>
+        <a class="btn-pill btn-pill-outline" data-link href="/share-your-story">Share Your Story</a>
+
+        <button type="button" class="icon-btn" aria-label="Select language">
+          <i class="icon-global text-4xl text-neutral-7"></i>
+        </button>
+
+        <button type="button" class="icon-btn" aria-label="Search">
+          <i class="icon-search text-4xl text-neutral-7"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <button
+      type="button"
+      data-menu-toggle
+      class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink hover:bg-slate-100 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <i class="icon-hamburger text-2xl text-neutral-7"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" data-mobile-menu class="mobile-menu lg:hidden">
+    <div>
+      <ul class="container flex flex-col gap-1 pb-4">
+        <li>
+          <a class="nav-link block rounded-lg px-3 py-2 hover:bg-slate-100" data-link href="/about"
+            >About</a
+          >
+        </li>
+        <li>
+          <a class="nav-link block rounded-lg px-3 py-2 hover:bg-slate-100" data-link href="/voices"
+            >Voices</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link block rounded-lg px-3 py-2 hover:bg-slate-100"
+            data-link
+            href="/resources"
+            >Resources</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link block rounded-lg px-3 py-2 hover:bg-slate-100"
+            data-link
+            href="/how-to-join"
+            >How To Join</a
+          >
+        </li>
+        <li class="flex flex-col gap-2 px-3 pt-3">
+          <a class="btn-pill btn-cta-primary w-full" data-link href="/get-involved">Get Involved</a>
+          <a class="btn-pill btn-pill-outline w-full" data-link href="/share-your-story"
+            >Share Your Story</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO meta tags (per-route title/description are updated by the router) -->
+    <title>Break The Silence</title>
+    <meta
+      name="description"
+      content="A scalable, accessible frontend starter built with HTML5, Tailwind CSS, and Vanilla JavaScript. Mobile-first, SEO-friendly, and performance optimized."
+    />
+    <meta
+      name="keywords"
+      content="frontend, tailwind css, vanilla javascript, html5, spa, router"
+    />
+    <meta name="author" content="Acme, Inc." />
+    <meta name="theme-color" content="#1f5af0" />
+    <link rel="canonical" href="https://example.com/" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Acme — Production-Ready Frontend Starter" />
+    <meta
+      property="og:description"
+      content="A scalable, accessible frontend starter built with HTML5, Tailwind CSS, and Vanilla JavaScript."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="assets/images/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+    <!--
+      Self-hosted fonts (Proxima Nova) are registered in src/styles/fonts.css.
+      Preload the critical above-the-fold weights to cut layout shift.
+      UNCOMMENT once the .woff2 files exist in assets/fonts/ (see fonts.css notes).
+      `crossorigin` is required even for same-origin font preloads.
+    -->
+    <!--
+    <link rel="preload" href="assets/fonts/ProximaNovaExtrabold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/ProximaNovaRegular.woff2" as="font" type="font/woff2" crossorigin />
+    -->
+
+    <!-- Swiper (slider library) styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Compiled Tailwind output -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <!-- Skip link for keyboard / screen-reader users -->
+    <a
+      href="#main"
+      class="sr-only-focusable absolute left-4 top-4 z-[60] rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white"
+      >Skip to content</a
+    >
+
+    <!-- Shared header injected here -->
+    <div data-include="components/header.html"></div>
+
+    <!-- Router outlet: view modules render their markup into this element -->
+    <main id="main" data-router-outlet class="flex-1" aria-live="polite"></main>
+
+    <!-- Shared footer injected here -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Swiper (slider library) — must load before the app module so `window.Swiper` exists -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- App entry (ES module) -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
