@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?zijidy');
+  src:  url('fonts/icomoon.eot?zijidy#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?zijidy') format('truetype'),
+    url('fonts/icomoon.woff?zijidy') format('woff'),
+    url('fonts/icomoon.svg?zijidy#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-safe-circle:before {
+  content: "\e905";
+}
+.icon-search:before {
+  content: "\e900";
+}
+.icon-global:before {
+  content: "\e901";
+}
+.icon-hr-materials:before {
+  content: "\e902";
+}
+.icon-helplines:before {
+  content: "\e903";
+}
+.icon-office-posters:before {
+  content: "\e904";
+}
+.icon-close:before {
+  content: "\e956";
+}
+.icon-hamburger:before {
+  content: "\e93d";
+}
+.icon-search1:before {
+  content: "\e910";
+}

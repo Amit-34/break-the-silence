@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Acme logo">
+  <rect width="64" height="64" rx="16" fill="#1f5af0" />
+  <path
+    d="M32 14 46 50h-8.4l-2.3-6.4h-6.6L26.4 50H18L32 14Zm0 13.7-2.1 5.9h4.2L32 27.7Z"
+    fill="#ffffff"
+  />
+</svg>

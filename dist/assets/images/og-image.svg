@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Acme  Production-ready frontend starter">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef6ff" />
+      <stop offset="1" stop-color="#ffffff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g transform="translate(96, 220)">
+    <rect width="88" height="88" rx="22" fill="#1f5af0" />
+    <text x="44" y="62" font-family="Poppins, Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+  </g>
+  <text x="96" y="400" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="700" fill="#0f172a">Build fast, scalable</text>
+  <text x="96" y="480" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="700" fill="#1f5af0">web experiences</text>
+  <text x="96" y="540" font-family="Inter, Arial, sans-serif" font-size="30" fill="#475569">HTML5 · Tailwind CSS · Vanilla JavaScript</text>
+</svg>

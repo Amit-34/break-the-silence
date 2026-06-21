@@ -1,0 +1,2381 @@
+/**
+ * main.css — global stylesheet entry point.
+ *
+ * IMPORTANT: postcss-import requires every @import to appear before any other
+ * rule. So all imports (Tailwind layers + our split component/page CSS) come
+ * first, and our own @layer blocks come afterwards. Tailwind hoists @layer
+ * contents into the correct layer regardless of their position in the file.
+ *
+ * Order of imports:
+ *   1. Tailwind base, then components
+ *   2. Our component/page CSS (which slot into the components/utilities layers)
+ *   3. Tailwind utilities last, so utilities win over component styles
+ */
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com
+ */
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+::before,
+::after {
+  --tw-content: '';
+}
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+html,
+:host {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 3 */
+  font-family: var(--font-body); /* 4 */
+  font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
+}
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+/*
+Remove the default font size and weight for headings.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+/*
+Add the correct font weight in Edge and Safari.
+*/
+b,
+strong {
+  font-weight: bolder;
+}
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+code,
+kbd,
+samp,
+pre {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
+}
+/*
+Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+button,
+select {
+  text-transform: none;
+}
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+:-moz-focusring {
+  outline: auto;
+}
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+progress {
+  vertical-align: baseline;
+}
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+/*
+Add the correct display in Chrome and Safari.
+*/
+summary {
+  display: list-item;
+}
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+legend {
+  padding: 0;
+}
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/*
+Reset default styling for dialogs.
+*/
+dialog {
+  padding: 0;
+}
+/*
+Prevent resizing textareas horizontally by default.
+*/
+textarea {
+  resize: vertical;
+}
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+/*
+Set the default cursor for buttons.
+*/
+button,
+[role="button"] {
+  cursor: pointer;
+}
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+:root {
+    --header-height: 4rem;
+  }
+html {
+    /* Global default text size (also sets the rem base = 16px). */
+    font-size: var(--font-size-base);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+  h2,
+  h3,
+  h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+    text-wrap: balance;
+}
+a {
+  --tw-text-opacity: 1;
+  color: rgb(31 90 240 / var(--tw-text-opacity, 1));
+  text-underline-offset: 2px;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+/* Visible focus ring for keyboard users (accessibility). */
+:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(52 121 251 / var(--tw-ring-opacity, 1));
+  --tw-ring-offset-width: 2px;
+}
+/* Consistent selection color. */
+::-moz-selection {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 218 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(20 33 86 / var(--tw-text-opacity, 1));
+}
+::selection {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 218 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(20 33 86 / var(--tw-text-opacity, 1));
+}
+.\!container {
+  width: 100% !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+@media (min-width: 640px) {
+  .\!container {
+    max-width: 640px !important;
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+  .container {
+    max-width: 640px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .\!container {
+    max-width: 768px !important;
+  }
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .\!container {
+    max-width: 1024px !important;
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+  }
+  .container {
+    max-width: 1024px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .\!container {
+    max-width: 1280px !important;
+    padding-right: 2.5rem !important;
+    padding-left: 2.5rem !important;
+  }
+  .container {
+    max-width: 1280px;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+@media (min-width: 1536px) {
+  .\!container {
+    max-width: 1536px !important;
+  }
+  .container {
+    max-width: 1536px;
+  }
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.875rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-width: 2px;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 90 240 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  --tw-shadow: 0 2px 8px -2px rgb(15 23 42 / 0.08), 0 8px 24px -4px rgb(15 23 42 / 0.08);
+  --tw-shadow-colored: 0 2px 8px -2px var(--tw-shadow-color), 0 8px 24px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.btn-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 69 220 / var(--tw-bg-opacity, 1));
+}
+.btn-primary:focus-visible {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(52 121 251 / var(--tw-ring-opacity, 1));
+}
+.btn-primary:active {
+  --tw-translate-y: 1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.btn-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-inset: inset;
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(226 232 240 / var(--tw-ring-opacity, 1));
+}
+.btn-secondary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
+}
+.btn-secondary:focus-visible {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(52 121 251 / var(--tw-ring-opacity, 1));
+}
+.btn-accent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 24 207 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  --tw-shadow: 0 2px 8px -2px rgb(15 23 42 / 0.08), 0 8px 24px -4px rgb(15 23 42 / 0.08);
+  --tw-shadow-colored: 0 2px 8px -2px var(--tw-shadow-color), 0 8px 24px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.btn-accent:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 18 168 / var(--tw-bg-opacity, 1));
+}
+.btn-accent:focus-visible {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(214 51 236 / var(--tw-ring-opacity, 1));
+}
+.btn-lg {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  --tw-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 12px 32px -12px rgb(15 23 42 / 0.18);
+  --tw-shadow-colored: 0 1px 2px var(--tw-shadow-color), 0 12px 32px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(241 245 249 / var(--tw-ring-opacity, 1));
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover {
+  --tw-translate-y: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.card-body {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+.card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+}
+.card-text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  line-height: 1.625;
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity, 1));
+}
+.card-icon {
+  margin-bottom: 0.25rem;
+  display: inline-flex;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 246 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(31 90 240 / var(--tw-text-opacity, 1));
+}
+.nav-link {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  text-decoration-line: none;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+    color: var(--neutral-7);
+}
+.nav-link:hover,
+  .nav-link[aria-current='page'] {
+    color: var(--primary-7);
+  }
+/* Animated underline indicator. */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0px;
+    height: 0.125rem;
+    width: 0px;
+    border-radius: 9999px;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: var(--secondary-1);
+  }
+.nav-link:hover::after,
+  .nav-link[aria-current='page']::after {
+  width: 100%;
+}
+/* Pill CTA buttons (rounded-full) used in the header. */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-decoration-line: none;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-pill:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-width: 2px;
+}
+/* Outlined variant: white fill, brand border + dark text. */
+.btn-pill-outline {
+    background-color: var(--neutral-6);
+    color: var(--neutral-1);
+    border: 1.5px solid var(--secondary-1);
+  }
+.btn-pill-outline:hover {
+    border-color: var(--secondary-1);
+    color: var(--secondary-2);
+  }
+/* Circular utility icon buttons (globe, search). */
+.icon-btn {
+  display: inline-flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+    color: var(--neutral-1);
+}
+.icon-btn:hover {
+    background-color: var(--neutral-5);
+    color: var(--primary-1);
+  }
+/* Mobile menu open/close transition (toggled via the `is-open` class in JS). */
+.mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.mobile-menu > div {
+  overflow: hidden;
+}
+/* Committed / invited companies carousel */
+/* "Organisations behind the campaign" — soft pink panel with curved white edges.
+     Each curve is a white block made WIDER than the section, so only the gentle
+     centre of a very large ellipse is visible. This reproduces the broad, shallow
+     sweep in the reference far more smoothly than a fixed-height SVG wave. */
+.org-panel {
+    position: relative;
+  }
+.org-panel__curve {
+    position: absolute;
+    width: 100%;
+    height: clamp(36px, 7vw, 120px);
+    background-color: var(--background-1);
+    z-index: 0;
+    pointer-events: none;
+  }
+/* Top: white sweeps DOWN into the pink. Ellipse centred ABOVE the block. */
+.org-panel__curve--top {
+    top: -1px;
+    clip-path: ellipse(60% 150% at 50% -50%);
+  }
+/* Bottom: white arches UP into the pink. Ellipse centred BELOW the block. */
+.org-panel__curve--bottom {
+    bottom: -1px;
+    clip-path: ellipse(60% 150% at 50% 150%);
+  }
+/**
+ * fonts.css — Scalable typography system (self-hosted fonts)
+ * =====================================================================
+ * A design-token based typography system built on @font-face + CSS
+ * custom properties, mirroring the architecture of colors.css.
+ *
+ * ARCHITECTURE (3 layers):
+ *   1. FONT FACES       — register every local font file with @font-face.
+ *                         One family ("Proxima Nova"), many weights.
+ *   2. SEMANTIC TOKENS  — intent-based aliases that map roles to families
+ *                         (--font-display, --font-heading, --font-body,
+ *                          --font-accent). Each carries its own fallback
+ *                          stack so text stays readable before fonts load.
+ *   3. WEIGHT TOKENS    — named weights (--fw-regular … --fw-extrabold)
+ *                         that match the registered @font-face weights.
+ *
+ * WHY THIS SCALES (and is multi-brand ready):
+ *   - Components reference SEMANTIC tokens (font-display, font-body, …),
+ *     never a raw font-family string.
+ *   - To re-brand, override the --font-* variables in a scope. Example:
+ *
+ *       [data-brand="acme"] {
+ *         --font-display: "Acme Grotesk", var(--font-fallback);
+ *       }
+ *
+ *     Every utility and component instantly picks up the new family —
+ *     zero changes to markup or Tailwind config.
+ *   - To add a weight, add ONE @font-face block. Tailwind's existing
+ *     font-weight utilities (font-medium, font-bold, …) just work.
+ *
+ * USAGE:
+ *   @import '../styles/fonts.css';     // load once, globally (see main.css)
+ *   <h1 class="font-display font-extrabold">…</h1>
+ *   <p  class="font-body">…</p>
+ *   font-family: var(--font-heading);  // in custom CSS
+ *
+ * FONT FILE FORMATS:
+ *   Each face prefers .woff2 → .woff (the modern, compressed web formats a
+ *   design system should ship), then falls back to the legacy .svg / .eot
+ *   files currently in /assets/fonts. SVG/EOT fonts do NOT render in modern
+ *   browsers, so add the .woff2/.woff files (see README/notes) for the fonts
+ *   to actually display. No code changes are needed once they are dropped in.
+ *
+ * PATHS:
+ *   url()s are relative to the COMPILED stylesheet (dist/css/main.css),
+ *   so fonts at dist/assets/fonts resolve as ../assets/fonts/…
+ * =====================================================================
+ */
+/* =====================================================================
+ * 1. FONT FACES — register every local Proxima Nova file.
+ *    Single family name, distinct font-weight per file. `font-display:
+ *    swap` shows fallback text immediately, then swaps in the web font.
+ * ================================================================== */
+/* Regular — 400 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaRegular.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaRegular.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaRegular.svg#ProximaNovaRegular") format("svg");
+}
+/* Medium — 500 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaMedium.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaMedium.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaMedium.svg#ProximaNovaMedium") format("svg");
+}
+/* Semibold — 600 (also ships a legacy .eot) */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaSemibold.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaSemibold.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaSemibold.eot") format("embedded-opentype"),
+    url("../assets/fonts/ProximaNovaSemibold.svg#ProximaNovaSemibold") format("svg");
+}
+/* Bold — 700 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaBold.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaBold.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaBold.svg#ProximaNovaBold") format("svg");
+}
+/* Extrabold — 800 */
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src:
+    url("../assets/fonts/ProximaNovaExtrabold.woff2") format("woff2"),
+    url("../assets/fonts/ProximaNovaExtrabold.woff") format("woff"),
+    url("../assets/fonts/ProximaNovaExtrabold.svg#ProximaNovaExtrabold") format("svg");
+}
+/* =====================================================================
+ * 2. SEMANTIC TOKENS — map typographic ROLES to families.
+ *    All roles share Proxima Nova here, but each is independently
+ *    re-brandable (override the variable in a [data-brand] scope).
+ * ================================================================== */
+:root {
+  /* Shared system fallback stack — used while web fonts load and as a
+     graceful degradation if a brand font is missing. */
+  --font-fallback: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+
+  /* Role tokens (consumed by Tailwind: font-display / -heading / -body / -accent) */
+  --font-display: "Proxima Nova", var(--font-fallback); /* hero / marketing  */
+  --font-heading: "Proxima Nova", var(--font-fallback); /* section headings  */
+  --font-body: "Proxima Nova", var(--font-fallback); /* paragraphs / UI   */
+  --font-accent: "Proxima Nova", var(--font-fallback); /* captions / labels */
+}
+/* =====================================================================
+ * 3. WEIGHT TOKENS — named weights matching the registered faces.
+ *    Tailwind's font-* weight utilities already map to these numbers;
+ *    these variables exist for use inside custom CSS.
+ * ================================================================== */
+:root {
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+}
+/**
+ * icons.css — IcoMoon icon font integration.
+ * =====================================================================
+ * Registers the "icomoon" icon font and exposes one class per glyph.
+ * Generated from the IcoMoon export in /assets/custom-fonts (style.css +
+ * selection.json). Edit there, re-export, then mirror changes here.
+ *
+ * USAGE:
+ *   <i class="icon-search" aria-hidden="true"></i>
+ *   <button aria-label="Close"><i class="icon-close"></i></button>
+ *
+ * Icons are pure decoration: add aria-hidden="true" (or an accessible
+ * label on the parent) so screen readers don't announce private-use
+ * codepoints.
+ *
+ * SIZING / COLOR:
+ *   The glyph inherits font-size and color, so size it like text:
+ *   <i class="icon-search text-2xl text-primary-600"></i>
+ *
+ * FONT FILES (IMPORTANT):
+ *   Only icomoon.svg currently ships in /assets/fonts. SVG fonts no
+ *   longer render in modern browsers, so drop the matching
+ *   icomoon.woff / icomoon.ttf / icomoon.eot (from the same IcoMoon
+ *   export) into src/assets/fonts/ for the icons to actually display.
+ *   No code changes are needed once they are added.
+ *
+ * PATHS:
+ *   url()s are relative to the COMPILED stylesheet (dist/css/main.css),
+ *   so fonts at dist/assets/fonts resolve as ../assets/fonts/…
+ * ================================================================== */
+@font-face {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-display: block;
+  src:
+    url("../assets/fonts/icomoon.woff2") format("woff2"),
+    url("../assets/fonts/icomoon.woff") format("woff"),
+    url("../assets/fonts/icomoon.ttf") format("truetype"),
+    url("../assets/fonts/icomoon.eot") format("embedded-opentype"),
+    url("../assets/fonts/icomoon.svg#icomoon") format("svg");
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-safe-circle::before {
+  content: "\e905";
+}
+.icon-search::before {
+  content: "\e900";
+}
+.icon-global::before {
+  content: "\e901";
+}
+.icon-hr-materials::before {
+  content: "\e902";
+}
+.icon-helplines::before {
+  content: "\e903";
+}
+.icon-office-posters::before {
+  content: "\e904";
+}
+.icon-close::before {
+  content: "\e956";
+}
+.icon-hamburger::before {
+  content: "\e93d";
+}
+.icon-search1::before {
+  content: "\e910";
+}
+/**
+ * Reusable button component classes.
+ * Declared inside Tailwind's `components` layer so utilities can still override them.
+ * Usage: <button class="btn btn-primary">Save</button>
+ */
+/**
+ * Card component classes used for feature/content tiles.
+ * Usage:
+ *   <article class="card">
+ *     <div class="card-body"> ... </div>
+ *   </article>
+ */
+/**
+ * Navbar-specific styles that are awkward to express purely with utilities
+ * (e.g. the animated underline on active links and the mobile menu transition).
+ */
+/**
+ * Page-specific styles for the home page hero.
+ * Page-scoped CSS lives here so global files stay lean as the project grows.
+ */
+/**
+ * colors.css — Scalable color system
+ * =====================================================================
+ * A design-token based color system built on CSS custom properties.
+ *
+ * ARCHITECTURE (3 layers):
+ *   1. PRIMITIVE TOKENS  — raw brand/scale values (--primary-1, --neutral-1…)
+ *   2. SEMANTIC TOKENS   — intent-based aliases that map to primitives
+ *                          (--text-primary, --bg-primary, --primary, …)
+ *   3. UTILITY CLASSES   — consume tokens (.text-*, .bg-*, .border-*)
+ *
+ * WHY THIS SCALES:
+ *   - Components reference SEMANTIC tokens, never raw hex.
+ *   - To re-theme (e.g. dark mode), only re-map semantic tokens.
+ *   - To add a color, add ONE primitive + (optionally) ONE utility.
+ *     Existing classes never need to change.
+ *
+ * USAGE:
+ *   @import './styles/colors.css';        // load once, globally
+ *   <p class="text-primary-1">…</p>
+ *   <button class="btn-cta-primary">Buy</button>
+ *   color: var(--text-secondary);         // in custom CSS
+ * =====================================================================
+ */
+/* =====================================================================
+ * 1. PRIMITIVE TOKENS — brand palette (plum / teal / mustard).
+ *    The single source of truth. Each family ramps from base (-1) to
+ *    hover/darker (-2) to lighter/tint (-3) where given.
+ * ================================================================== */
+:root {
+  /* ---- Brand colors ---- */
+  --primary-1: #5e2355;
+  --primary-2: #612a66;
+  --primary-3: #7b4580;
+  --primary-4: #491541;
+
+  --secondary-1: #1fa89a; /* Teal CTA             */
+  --secondary-2: #16877c;
+  --secondary-3: #a8e0d9;
+
+  --tertiary-1: #f2c93d; /* Mustard yellow        */
+  --tertiary-2: #ffd84d;
+  --tertiary-3: #fff1b8;
+
+  /* ---- Neutrals (1 = darkest text → 6 = white) ---- */
+  --neutral-1: #111111; /* Primary text           */
+  --neutral-2: #444444; /* Secondary text         */
+  --neutral-3: #777777; /* Muted text             */
+  --neutral-4: #d9d9d9; /* Borders                */
+  --neutral-5: #f5f5f5; /* Surface                */
+  --neutral-6: #ffffff; /* White                  */
+  --neutral-7: #000000;
+  --neutral-8: #5c5d5f;
+
+  /* ---- Backgrounds / sections ---- */
+  --background-1: #ffffff;
+  --background-2: #f5f5f5;
+  --background-3: #f8eef4;
+  --background-4: #ffd100;
+  --background-5: #f2d055;
+  --background-6: #ebebeb80;
+
+  /* ---- CTA ---- */
+  --cta-primary: #18a191;
+  --cta-primary-hover: #148a7e;
+  --cta-secondary: #4a1f4d;
+  --cta-secondary-hover: #612a66;
+
+  /* ---- Status / feedback ---- */
+  --accent-success: #2e9d5a;
+  --accent-warning: #e5a100;
+  --accent-error: #d64545;
+  --accent-info: #2f80ed;
+
+  /* ---- Decorative ---- */
+  --decorative-pink: #f3d7e4;
+  --decorative-lavender: #e9ddf4;
+  --decorative-yellow: #f8d94b;
+}
+/* =====================================================================
+ * 2. SEMANTIC TOKENS — intent-based aliases (theme-able layer).
+ *    Components should consume these, NOT the primitives above.
+ *    Re-mapping these (e.g. in [data-theme="dark"]) re-themes the app.
+ * ================================================================== */
+:root {
+  /* ---- Text ---- */
+  --text-primary: var(--neutral-1);
+  --text-secondary: var(--neutral-2);
+  --text-muted: var(--neutral-3);
+
+  /* ---- Surfaces / backgrounds ---- */
+  --bg-primary: var(--background-1);
+  --bg-secondary: var(--background-2);
+
+  /* ---- Borders ---- */
+  --border-primary: var(--neutral-4);
+
+  /* ---- Short-hand brand aliases (write var(--primary), etc.) ---- */
+  --primary: var(--primary-1); /* brand primary (plum)     */
+  --secondary: var(--secondary-1); /* brand secondary (teal)   */
+  --tertiary: var(--tertiary-1); /* brand tertiary (mustard) */
+  --neutral: var(--neutral-3); /* neutral mid-gray         */
+  --background: var(--background-1); /* app surface              */
+}
+/* =====================================================================
+ * 3. UTILITY CLASSES — single-purpose, BEM-friendly helpers.
+ *    Naming: <property>-<family>-<step>  (e.g. .text-primary-1)
+ *    To extend: add the token in section 1, then copy a block here.
+ * ================================================================== */
+/* ---- Text: brand ---- */
+.text-primary-1 {
+  color: var(--primary-1);
+}
+.text-primary-2 {
+  color: var(--primary-2);
+}
+.text-primary-3 {
+  color: var(--primary-3);
+}
+.text-secondary-1 {
+  color: var(--secondary-1);
+}
+.text-secondary-2 {
+  color: var(--secondary-2);
+}
+.text-secondary-3 {
+  color: var(--secondary-3);
+}
+.text-tertiary-1 {
+  color: var(--tertiary-1);
+}
+.text-tertiary-2 {
+  color: var(--tertiary-2);
+}
+.text-tertiary-3 {
+  color: var(--tertiary-3);
+}
+/* ---- Text: neutrals ---- */
+.text-neutral-1 {
+  color: var(--neutral-1);
+}
+.text-neutral-2 {
+  color: var(--neutral-2);
+}
+.text-neutral-3 {
+  color: var(--neutral-3);
+}
+.text-neutral-4 {
+  color: var(--neutral-4);
+}
+.text-neutral-5 {
+  color: var(--neutral-5);
+}
+.text-neutral-6 {
+  color: var(--neutral-6);
+}
+.text-neutral-7 {
+  color: var(--neutral-7);
+}
+.text-neutral-8 {
+  color: var(--neutral-8);
+}
+/* ---- Text: status ---- */
+.text-accent-success {
+  color: var(--accent-success);
+}
+.text-accent-warning {
+  color: var(--accent-warning);
+}
+.text-accent-error {
+  color: var(--accent-error);
+}
+.text-accent-info {
+  color: var(--accent-info);
+}
+/* ---- Background: brand ---- */
+.bg-primary-1 {
+  background-color: var(--primary-1);
+}
+.bg-primary-2 {
+  background-color: var(--primary-2);
+}
+.bg-primary-3 {
+  background-color: var(--primary-3);
+}
+.bg-primary-4 {
+  background-color: var(--primary-4);
+}
+.bg-secondary-1 {
+  background-color: var(--secondary-1);
+}
+.bg-secondary-2 {
+  background-color: var(--secondary-2);
+}
+.bg-secondary-3 {
+  background-color: var(--secondary-3);
+}
+.bg-tertiary-1 {
+  background-color: var(--tertiary-1);
+}
+.bg-tertiary-2 {
+  background-color: var(--tertiary-2);
+}
+.bg-tertiary-3 {
+  background-color: var(--tertiary-3);
+}
+/* ---- Background: neutrals & sections ---- */
+.bg-neutral-1 {
+  background-color: var(--neutral-1);
+}
+.bg-neutral-2 {
+  background-color: var(--neutral-2);
+}
+.bg-neutral-3 {
+  background-color: var(--neutral-3);
+}
+.bg-neutral-4 {
+  background-color: var(--neutral-4);
+}
+.bg-neutral-5 {
+  background-color: var(--neutral-5);
+}
+.bg-neutral-6 {
+  background-color: var(--neutral-6);
+}
+.bg-background-1 {
+  background-color: var(--background-1);
+}
+.bg-background-2 {
+  background-color: var(--background-2);
+}
+.bg-background-3 {
+  background-color: var(--background-3);
+}
+.bg-background-4 {
+  background-color: var(--background-4);
+}
+.bg-background-5 {
+  background-color: var(--background-5);
+}
+.bg-background-6 {
+  background-color: var(--background-6);
+}
+/* ---- Background: status ---- */
+.bg-accent-success {
+  background-color: var(--accent-success);
+}
+.bg-accent-warning {
+  background-color: var(--accent-warning);
+}
+.bg-accent-error {
+  background-color: var(--accent-error);
+}
+.bg-accent-info {
+  background-color: var(--accent-info);
+}
+/* ---- Background: decorative ---- */
+.bg-decorative-pink {
+  background-color: var(--decorative-pink);
+}
+.bg-decorative-lavender {
+  background-color: var(--decorative-lavender);
+}
+.bg-decorative-yellow {
+  background-color: var(--decorative-yellow);
+}
+/* ---- Border: brand, neutrals & status ---- */
+.border-primary-1 {
+  border-color: var(--primary-1);
+}
+.border-primary-2 {
+  border-color: var(--primary-2);
+}
+.border-secondary-1 {
+  border-color: var(--secondary-1);
+}
+.border-secondary-2 {
+  border-color: var(--secondary-2);
+}
+.border-tertiary-1 {
+  border-color: var(--tertiary-1);
+}
+.border-neutral-4 {
+  border-color: var(--neutral-4);
+}
+.border-accent-error {
+  border-color: var(--accent-error);
+}
+/* =====================================================================
+ * 4. CTA COMPONENTS — ready-to-use buttons with built-in hover states.
+ *    Usage: <button class="btn-cta-primary">Buy now</button>
+ * ================================================================== */
+.btn-cta-primary {
+  background-color: var(--cta-primary);
+  color: var(--neutral-6);
+}
+/* Re-assert the text color on hover so the global `a:hover` color
+   (text-primary-700) can't override a CTA rendered as a link. */
+.btn-cta-primary:hover {
+  background-color: var(--cta-primary-hover);
+  color: var(--neutral-6);
+}
+.btn-cta-secondary {
+  background-color: var(--cta-secondary);
+  color: var(--neutral-6);
+}
+.btn-cta-secondary:hover {
+  background-color: var(--cta-secondary-hover);
+  color: var(--neutral-6);
+}
+.pointer-events-none {
+  pointer-events: none;
+}
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+.static {
+  position: static;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.sticky {
+  position: sticky;
+}
+.inset-0 {
+  inset: 0px;
+}
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
+}
+.-bottom-4 {
+  bottom: -1rem;
+}
+.-bottom-7 {
+  bottom: -1.75rem;
+}
+.bottom-0 {
+  bottom: 0px;
+}
+.bottom-9 {
+  bottom: 2.25rem;
+}
+.left-1\/2 {
+  left: 50%;
+}
+.left-2 {
+  left: 0.5rem;
+}
+.left-4 {
+  left: 1rem;
+}
+.right-0 {
+  right: 0px;
+}
+.right-2 {
+  right: 0.5rem;
+}
+.right-4 {
+  right: 1rem;
+}
+.right-5 {
+  right: 1.25rem;
+}
+.top-0 {
+  top: 0px;
+}
+.top-3 {
+  top: 0.75rem;
+}
+.top-4 {
+  top: 1rem;
+}
+.top-\[-123px\] {
+  top: -123px;
+}
+.z-10 {
+  z-index: 10;
+}
+.z-50 {
+  z-index: 50;
+}
+.z-\[1\] {
+  z-index: 1;
+}
+.z-\[60\] {
+  z-index: 60;
+}
+.order-first {
+  order: -9999;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mt-1\.5 {
+  margin-top: 0.375rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.mt-16 {
+  margin-top: 4rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-7 {
+  margin-top: 1.75rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.table {
+  display: table;
+}
+.grid {
+  display: grid;
+}
+.contents {
+  display: contents;
+}
+.hidden {
+  display: none;
+}
+.aspect-\[4\/3\] {
+  aspect-ratio: 4/3;
+}
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+.h-10 {
+  height: 2.5rem;
+}
+.h-16 {
+  height: 4rem;
+}
+.h-28 {
+  height: 7rem;
+}
+.h-8 {
+  height: 2rem;
+}
+.h-9 {
+  height: 2.25rem;
+}
+.h-\[76\%\] {
+  height: 76%;
+}
+.h-\[86\%\] {
+  height: 86%;
+}
+.h-auto {
+  height: auto;
+}
+.h-full {
+  height: 100%;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-10 {
+  width: 2.5rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-28 {
+  width: 7rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-\[76\%\] {
+  width: 76%;
+}
+.w-\[86\%\] {
+  width: 86%;
+}
+.w-auto {
+  width: auto;
+}
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.w-full {
+  width: 100%;
+}
+.max-w-16 {
+  max-width: 4rem;
+}
+.max-w-20 {
+  max-width: 5rem;
+}
+.max-w-24 {
+  max-width: 6rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+.max-w-\[80px\] {
+  max-width: 80px;
+}
+.max-w-\[85px\] {
+  max-width: 85px;
+}
+.max-w-md {
+  max-width: 28rem;
+}
+.max-w-prose {
+  max-width: 70ch;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-xs {
+  max-width: 20rem;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s var(--tw-ease, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.place-items-center {
+  place-items: center;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-1\.5 {
+  gap: 0.375rem;
+}
+.gap-12 {
+  gap: 3rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-x-10 {
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+.gap-y-8 {
+  row-gap: 2rem;
+}
+.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+.space-y-2\.5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.625rem * var(--tw-space-y-reverse));
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-2xl {
+  border-radius: 1.25rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.rounded-md {
+  border-radius: 0.375rem;
+}
+.border {
+  border-width: 1px;
+}
+.border-8 {
+  border-width: 8px;
+}
+.border-b {
+  border-bottom-width: 1px;
+}
+.border-slate-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(241 245 249 / var(--tw-border-opacity, 1));
+}
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+.bg-\[\#E9E9E9\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(233 233 233 / var(--tw-bg-opacity, 1));
+}
+.bg-\[var\(--primary-1\)\] {
+  background-color: var(--primary-1);
+}
+.bg-primary-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 90 240 / var(--tw-bg-opacity, 1));
+}
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+.bg-slate-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
+}
+.bg-\[linear-gradient\(180deg\2c rgba\(102\2c 102\2c 102\2c 0\.45\)_32\.06\%\2c rgba\(94\2c 35\2c 85\2c 0\.9\)_91\.51\%\)\] {
+  background-image: linear-gradient(180deg,rgba(102,102,102,0.45) 32.06%,rgba(94,35,85,0.9) 91.51%);
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-center {
+  background-position: center;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.px-1\.5 {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+}
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pt-4 {
+  padding-top: 1rem;
+}
+.pt-6 {
+  padding-top: 1.5rem;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.font-accent {
+  font-family: var(--font-accent);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+.font-heading {
+  font-family: var(--font-heading);
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-display-lg {
+  font-size: 3.75rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-extrabold {
+  font-weight: 800;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-normal {
+  font-weight: 400;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.leading-none {
+  line-height: 1;
+}
+.leading-relaxed {
+  line-height: 1.625;
+}
+.leading-tight {
+  line-height: 1.25;
+}
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
+}
+.text-ink {
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+}
+.text-ink-muted {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity, 1));
+}
+.text-ink-soft {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+}
+.text-primary-600 {
+  --tw-text-opacity: 1;
+  color: rgb(31 90 240 / var(--tw-text-opacity, 1));
+}
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.no-underline {
+  text-decoration-line: none;
+}
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-soft {
+  --tw-shadow: 0 2px 8px -2px rgb(15 23 42 / 0.08), 0 8px 24px -4px rgb(15 23 42 / 0.08);
+  --tw-shadow-colored: 0 2px 8px -2px var(--tw-shadow-color), 0 8px 24px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.ring {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-500 {
+  transition-duration: 500ms;
+}
+/* Constrain text to a comfortable reading measure. */
+/* Accessible "visually hidden" helper (screen-reader only). */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+/* Section vertical rhythm used across pages. */
+.section-y {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 640px) {
+  .section-y {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-y {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+/* ---- Base layer: element-level defaults ---- */
+/* ---- Custom reusable utilities ---- */
+.hover\:bg-slate-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+.group:hover .group-hover\:scale-105 {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@media (min-width: 640px) {
+  .sm\:block {
+    display: block;
+  }
+  .sm\:w-\[90px\] {
+    width: 90px;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+  .sm\:gap-5 {
+    gap: 1.25rem;
+  }
+  .sm\:pt-2 {
+    padding-top: 0.5rem;
+  }
+  .sm\:text-left {
+    text-align: left;
+  }
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .md\:h-10 {
+    height: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:-bottom-2 {
+    bottom: -0.5rem;
+  }
+  .lg\:bottom-\[-30px\] {
+    bottom: -30px;
+  }
+  .lg\:bottom-\[-42px\] {
+    bottom: -42px;
+  }
+  .lg\:left-10 {
+    left: 2.5rem;
+  }
+  .lg\:right-16 {
+    right: 4rem;
+  }
+  .lg\:right-28 {
+    right: 7rem;
+  }
+  .lg\:top-11 {
+    top: 2.75rem;
+  }
+  .lg\:top-5 {
+    top: 1.25rem;
+  }
+  .lg\:order-last {
+    order: 9999;
+  }
+  .lg\:ml-auto {
+    margin-left: auto;
+  }
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+  .lg\:mt-12 {
+    margin-top: 3rem;
+  }
+  .lg\:mt-14 {
+    margin-top: 3.5rem;
+  }
+  .lg\:mt-6 {
+    margin-top: 1.5rem;
+  }
+  .lg\:mt-8 {
+    margin-top: 2rem;
+  }
+  .lg\:flex {
+    display: flex;
+  }
+  .lg\:hidden {
+    display: none;
+  }
+  .lg\:h-\[185px\] {
+    height: 185px;
+  }
+  .lg\:h-\[90px\] {
+    height: 90px;
+  }
+  .lg\:min-h-\[380px\] {
+    min-height: 380px;
+  }
+  .lg\:min-h-\[630px\] {
+    min-height: 630px;
+  }
+  .lg\:w-24 {
+    width: 6rem;
+  }
+  .lg\:w-\[185px\] {
+    width: 185px;
+  }
+  .lg\:w-\[calc\(100\%-6\%\)\] {
+    width: calc(100% - 6%);
+  }
+  .lg\:max-w-28 {
+    max-width: 7rem;
+  }
+  .lg\:max-w-\[126px\] {
+    max-width: 126px;
+  }
+  .lg\:max-w-\[218px\] {
+    max-width: 218px;
+  }
+  .lg\:max-w-\[230px\] {
+    max-width: 230px;
+  }
+  .lg\:max-w-\[248px\] {
+    max-width: 248px;
+  }
+  .lg\:max-w-none {
+    max-width: none;
+  }
+  .lg\:max-w-xl {
+    max-width: 36rem;
+  }
+  .lg\:flex-1 {
+    flex: 1 1 0%;
+  }
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-\[minmax\(0\2c 22rem\)_1fr\] {
+    grid-template-columns: minmax(0,22rem) 1fr;
+  }
+  .lg\:grid-cols-\[minmax\(0\2c 300px\)_1fr\] {
+    grid-template-columns: minmax(0,300px) 1fr;
+  }
+  .lg\:grid-cols-\[minmax\(0\2c 476px\)_1fr\] {
+    grid-template-columns: minmax(0,476px) 1fr;
+  }
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+  .lg\:flex-col {
+    flex-direction: column;
+  }
+  .lg\:gap-10 {
+    gap: 2.5rem;
+  }
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
+  .lg\:gap-5 {
+    gap: 1.25rem;
+  }
+  .lg\:gap-8 {
+    gap: 2rem;
+  }
+  .lg\:bg-transparent {
+    background-color: transparent;
+  }
+  .lg\:bg-\[url\(\'\/assets\/images\/footer\/footer-bg\.png\'\)\] {
+    background-image: url('/assets/images/footer/footer-bg.png');
+  }
+  .lg\:p-6 {
+    padding: 1.5rem;
+  }
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .lg\:py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .lg\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  .lg\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .lg\:pb-\[0px\] {
+    padding-bottom: 0px;
+  }
+  .lg\:pt-10 {
+    padding-top: 2.5rem;
+  }
+  .lg\:pt-2 {
+    padding-top: 0.5rem;
+  }
+  .lg\:pt-24 {
+    padding-top: 6rem;
+  }
+  .lg\:text-left {
+    text-align: left;
+  }
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  .lg\:text-\[82px\] {
+    font-size: 82px;
+  }
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  .lg\:leading-\[82px\] {
+    line-height: 82px;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:gap-16 {
+    gap: 4rem;
+  }
+}
+@media (min-width: 1536px) {
+  .\32xl\:min-h-\[720px\] {
+    min-height: 720px;
+  }
+  .\32xl\:bg-\[length\:100\%_100\%\] {
+    background-size: 100% 100%;
+  }
+}
